@@ -10,14 +10,14 @@
     "api"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/yolkmonday/n8n-nodes-csku",
+  "homepage": "https://github.com/bukakios21/n8n-nodes-csku",
   "author": {
     "name": "Ari Padrian",
     "email": "ari.padrian@bukakios.id"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yolkmonday/n8n-nodes-csku.git"
+    "url": "https://github.com/bukakios21/n8n-nodes-csku.git"
   },
   "main": "index.js",
   "scripts": {
