@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-csku",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "n8n node for CSKU API",
   "keywords": [
     "n8n-community-node-package",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bukakios21/n8n-nodes-csku.git"
+    "url": "git+https://github.com/bukakios21/n8n-nodes-csku.git"
   },
   "main": "index.js",
   "scripts": {
@@ -35,17 +35,19 @@
       "credentials/CskuApi.credentials.js"
     ],
     "nodes": [
-      "nodes/Csku/Csku.node.js"
+      "nodes/Csku/Csku.node.js",
+      "nodes/Csku/CskuTrigger.node.js"
     ]
   },
   "devDependencies": {
+    "@types/node": "^18.19.130",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.0",
     "eslint-plugin-n8n-nodes-base": "^1.11.0",
     "gulp": "^4.0.2",
     "n8n-workflow": "^1.0.0",
     "prettier": "^2.7.1",
-    "typescript": "^4.9.0"
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "n8n-workflow": "*"

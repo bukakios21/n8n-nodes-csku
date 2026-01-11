@@ -16,7 +16,7 @@ export class Csku implements INodeType {
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-		description: 'Interact with CSKU API',
+		description: 'Berinteraksi dengan CSKU API',
 		defaults: {
 			name: 'CSKU',
 		},
@@ -42,15 +42,15 @@ export class Csku implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'Message',
+						name: 'Pesan',
 						value: 'message',
 					},
 					{
-						name: 'Note',
+						name: 'Catatan',
 						value: 'note',
 					},
 					{
-						name: 'Conversation',
+						name: 'Percakapan',
 						value: 'conversation',
 					},
 				],
@@ -58,7 +58,7 @@ export class Csku implements INodeType {
 			},
 			// Message Operations
 			{
-				displayName: 'Operation',
+				displayName: 'Operasi',
 				name: 'operation',
 				type: 'options',
 				noDataExpression: true,
@@ -69,23 +69,23 @@ export class Csku implements INodeType {
 				},
 				options: [
 					{
-						name: 'Send',
+						name: 'Kirim',
 						value: 'send',
-						description: 'Send a message',
-						action: 'Send a message',
+						description: 'Kirim pesan ke conversation',
+						action: 'Kirim pesan',
 					},
 					{
-						name: 'Get All',
+						name: 'Ambil Semua',
 						value: 'getAll',
-						description: 'Get all messages in a conversation',
-						action: 'Get all messages',
+						description: 'Ambil semua pesan dalam conversation',
+						action: 'Ambil semua pesan',
 					},
 				],
 				default: 'send',
 			},
 			// Note Operations
 			{
-				displayName: 'Operation',
+				displayName: 'Operasi',
 				name: 'operation',
 				type: 'options',
 				noDataExpression: true,
@@ -96,17 +96,17 @@ export class Csku implements INodeType {
 				},
 				options: [
 					{
-						name: 'Create',
+						name: 'Buat',
 						value: 'create',
-						description: 'Create a note',
-						action: 'Create a note',
+						description: 'Buat catatan internal',
+						action: 'Buat catatan',
 					},
 				],
 				default: 'create',
 			},
 			// Conversation Operations
 			{
-				displayName: 'Operation',
+				displayName: 'Operasi',
 				name: 'operation',
 				type: 'options',
 				noDataExpression: true,
@@ -117,16 +117,16 @@ export class Csku implements INodeType {
 				},
 				options: [
 					{
-						name: 'Mark Need Human',
+						name: 'Tandai Butuh CS',
 						value: 'markNeedHuman',
-						description: 'Mark conversation as needing human',
-						action: 'Mark conversation as needing human',
+						description: 'Tandai conversation membutuhkan CS',
+						action: 'Tandai butuh CS',
 					},
 					{
-						name: 'Get Need Human Total',
+						name: 'Total Butuh CS',
 						value: 'getNeedHumanTotal',
-						description: 'Get total conversations needing human',
-						action: 'Get total conversations needing human',
+						description: 'Ambil total conversation yang butuh CS',
+						action: 'Ambil total butuh CS',
 					},
 				],
 				default: 'markNeedHuman',
@@ -145,10 +145,10 @@ export class Csku implements INodeType {
 					},
 				},
 				default: '',
-				description: 'The conversation ID',
+				description: 'Conversation ID tujuan',
 			},
 			{
-				displayName: 'Message Type',
+				displayName: 'Tipe Pesan',
 				name: 'messageType',
 				type: 'options',
 				required: true,
@@ -160,7 +160,7 @@ export class Csku implements INodeType {
 				},
 				options: [
 					{
-						name: 'Text',
+						name: 'Teks',
 						value: 'text',
 					},
 					{
@@ -169,10 +169,10 @@ export class Csku implements INodeType {
 					},
 				],
 				default: 'text',
-				description: 'Type of message to send',
+				description: 'Tipe pesan yang akan dikirim',
 			},
 			{
-				displayName: 'Text',
+				displayName: 'Teks',
 				name: 'text',
 				type: 'string',
 				required: true,
@@ -184,10 +184,10 @@ export class Csku implements INodeType {
 					},
 				},
 				default: '',
-				description: 'The text message to send',
+				description: 'Pesan teks yang akan dikirim',
 			},
 			{
-				displayName: 'Media URL',
+				displayName: 'URL Media',
 				name: 'mediaUrl',
 				type: 'string',
 				required: true,
@@ -199,10 +199,10 @@ export class Csku implements INodeType {
 					},
 				},
 				default: '',
-				description: 'URL of the media file',
+				description: 'URL file media',
 			},
 			{
-				displayName: 'Media Type',
+				displayName: 'Tipe Media',
 				name: 'mediaType',
 				type: 'options',
 				required: true,
@@ -215,7 +215,7 @@ export class Csku implements INodeType {
 				},
 				options: [
 					{
-						name: 'Image',
+						name: 'Gambar',
 						value: 'image',
 					},
 					{
@@ -227,15 +227,15 @@ export class Csku implements INodeType {
 						value: 'audio',
 					},
 					{
-						name: 'Document',
+						name: 'Dokumen',
 						value: 'document',
 					},
 				],
 				default: 'image',
-				description: 'Type of media',
+				description: 'Tipe media',
 			},
 			{
-				displayName: 'MIME Type',
+				displayName: 'Tipe MIME',
 				name: 'mimeType',
 				type: 'string',
 				displayOptions: {
@@ -246,7 +246,7 @@ export class Csku implements INodeType {
 					},
 				},
 				default: 'image/jpeg',
-				description: 'MIME type of the media file',
+				description: 'Tipe MIME file media',
 			},
 			{
 				displayName: 'Caption',
@@ -260,12 +260,12 @@ export class Csku implements INodeType {
 					},
 				},
 				default: '',
-				description: 'Caption for the media',
+				description: 'Caption untuk media',
 			},
 
 			// ===== Message: Get All Fields =====
 			{
-				displayName: 'Conversation ID',
+				displayName: 'ID Percakapan',
 				name: 'conversationId',
 				type: 'string',
 				required: true,
@@ -276,12 +276,12 @@ export class Csku implements INodeType {
 					},
 				},
 				default: '',
-				description: 'The conversation ID',
+				description: 'ID percakapan',
 			},
 
 			// ===== Note: Create Fields =====
 			{
-				displayName: 'Conversation ID',
+				displayName: 'ID Percakapan',
 				name: 'conversationId',
 				type: 'string',
 				required: true,
@@ -292,10 +292,10 @@ export class Csku implements INodeType {
 					},
 				},
 				default: '',
-				description: 'The conversation ID',
+				description: 'ID percakapan',
 			},
 			{
-				displayName: 'Note',
+				displayName: 'Catatan',
 				name: 'note',
 				type: 'string',
 				required: true,
@@ -306,12 +306,12 @@ export class Csku implements INodeType {
 					},
 				},
 				default: '',
-				description: 'The note content',
+				description: 'Isi catatan',
 			},
 
 			// ===== Conversation: Mark Need Human Fields =====
 			{
-				displayName: 'Conversation ID',
+				displayName: 'ID Percakapan',
 				name: 'conversationId',
 				type: 'string',
 				required: true,
@@ -322,7 +322,7 @@ export class Csku implements INodeType {
 					},
 				},
 				default: '',
-				description: 'The conversation ID',
+				description: 'ID percakapan',
 			},
 		],
 	};
