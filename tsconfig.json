@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "ES2019",
-    "lib": ["ES2019"],
+    "target": "ES2022",
+    "lib": [
+      "ES2022"
+    ],
     "moduleResolution": "node",
     "declaration": true,
     "outDir": "./dist",
@@ -11,7 +13,8 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "strict": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "useDefineForClassFields": true
   },
   "include": [
     "credentials/**/*",

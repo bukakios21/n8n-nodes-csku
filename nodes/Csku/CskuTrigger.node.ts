@@ -1,6 +1,4 @@
-
-import {
-    IHookFunctions,
+import type {
     IWebhookFunctions,
     INodeType,
     INodeTypeDescription,
@@ -98,16 +96,13 @@ export class CskuTrigger implements INodeType {
 
     webhookMethods = {
         default: {
-            async checkExists(this: IHookFunctions): Promise<boolean> {
-                // Webhook is stateless, always return true
+            async checkExists(): Promise<boolean> {
                 return true;
             },
-            async create(this: IHookFunctions): Promise<boolean> {
-                // Nothing to create, webhook is passive
+            async create(): Promise<boolean> {
                 return true;
             },
-            async delete(this: IHookFunctions): Promise<boolean> {
-                // Nothing to delete
+            async delete(): Promise<boolean> {
                 return true;
             },
         },
@@ -119,7 +114,6 @@ export class CskuTrigger implements INodeType {
         const event = this.getNodeParameter('event') as string;
         const verifySecret = this.getNodeParameter('verifySecret') as boolean;
 
-        // Verify secret if enabled
         if (verifySecret) {
             const credentials = await this.getCredentials('cskuApi');
             const headerSecret = req.headers['secret'] as string;
@@ -129,14 +123,13 @@ export class CskuTrigger implements INodeType {
             if (credentials.authenticationType === 'businessSecret') {
                 expectedSecret = credentials.secret as string;
             } else if (credentials.authenticationType === 'bearerToken') {
-                // For bearer token, extract secret from the token (format: business_id:secret_key in base64)
                 try {
                     const decoded = Buffer.from(credentials.bearerToken as string, 'base64').toString('utf-8');
                     const parts = decoded.split(':');
                     if (parts.length >= 2) {
                         expectedSecret = parts[1];
                     }
-                } catch (e) {
+                } catch {
                     // Invalid base64, skip verification
                 }
             }
@@ -151,11 +144,9 @@ export class CskuTrigger implements INodeType {
             }
         }
 
-        // Check if the event matches
         const receivedEvent = body.event as string;
 
         if (event !== '*' && receivedEvent !== event) {
-            // Event doesn't match, return success but don't trigger workflow
             return {
                 webhookResponse: {
                     status: 200,
@@ -164,7 +155,6 @@ export class CskuTrigger implements INodeType {
             };
         }
 
-        // Return the webhook data to trigger the workflow
         return {
             workflowData: [
                 this.helpers.returnJsonArray([body]),

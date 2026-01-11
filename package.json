@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-csku",
-  "version": "0.2.0",
+  "version": "0.2.6",
   "description": "n8n node for CSKU API",
   "keywords": [
     "n8n-community-node-package",
@@ -26,17 +26,16 @@
     "format": "prettier nodes credentials --write"
   },
   "files": [
-    "nodes",
-    "credentials"
+    "dist"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "credentials/CskuApi.credentials.js"
+      "dist/credentials/CskuApi.credentials.js"
     ],
     "nodes": [
-      "nodes/Csku/Csku.node.js",
-      "nodes/Csku/CskuTrigger.node.js"
+      "dist/nodes/Csku/Csku.node.js",
+      "dist/nodes/Csku/CskuTrigger.node.js"
     ]
   },
   "devDependencies": {
